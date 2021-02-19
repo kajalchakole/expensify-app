@@ -16,32 +16,30 @@ firebase.initializeApp(firebaseConfig);
 //working with firebase database
 const database = firebase.database();
 
+// database.ref('expenses').on('value', (snapshot) => {
+//     const expenses = [];
+
+//     snapshot.forEach((childSnapshot) => {
+//         expenses.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val()
+//         });
+//     });
+//     console.log(expenses);
+// });
+
+database.ref('expenses').on('child_added', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+});
+
 database.ref('expenses').push({
-    description: 'Rent',
+    description: 'Rent2',
     note: 'This is rent',
     amount: 109500,
     createdAt: 9897594754 
 });
-database.ref('expenses').push({
-    description: 'Bill',
-    note: 'This is phone',
-    amount: 5900,
-    createdAt: 9894394754 
-});
-database.ref('expenses').push({
-    description: 'Food',
-    note: 'This is food bill',
-    amount: 100,
-    createdAt: 4397594754 
-});
-
-
-
-
 
 // database.ref('notes/MTuaNzJE7eiRzfALpvJ').remove();
-
-
 
 // const firebaseNotes = {
 //     notes: {
@@ -67,9 +65,6 @@ database.ref('expenses').push({
 // }];
 
 // database.ref('notes').set(notes);
-
-
-
 
 // database.ref('name').once('value')
 //     .then((snapshot) => {
