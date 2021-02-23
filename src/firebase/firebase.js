@@ -16,6 +16,9 @@ firebase.initializeApp(firebaseConfig);
 //working with firebase database
 const database = firebase.database();
 
+export { firebase, database as default};
+
+
 // database.ref('expenses').on('value', (snapshot) => {
 //     const expenses = [];
 
@@ -28,16 +31,16 @@ const database = firebase.database();
 //     console.log(expenses);
 // });
 
-database.ref('expenses').on('child_added', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
+// database.ref('expenses').on('child_added', (snapshot) => {
+//     console.log(snapshot.key, snapshot.val());
+// });
 
-database.ref('expenses').push({
-    description: 'Rent2',
-    note: 'This is rent',
-    amount: 109500,
-    createdAt: 9897594754 
-});
+// database.ref('expenses').push({
+//     description: 'Rent2',
+//     note: 'This is rent',
+//     amount: 109500,
+//     createdAt: 9897594754 
+// });
 
 // database.ref('notes/MTuaNzJE7eiRzfALpvJ').remove();
 
