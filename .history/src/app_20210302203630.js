@@ -42,6 +42,6 @@ firebase.auth().onAuthStateChanged((user) => {
         });
     }else {
         renderApp();
-        history.push('/');
+        // history.push('/');
     }
 });

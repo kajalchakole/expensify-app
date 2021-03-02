@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import "firebase/auth";
 require('firebase/database');
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -13,8 +14,9 @@ firebase.initializeApp(firebaseConfig);
 
 //working with firebase database
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, database as default};
+export { firebase, googleAuthProvider, database as default};
 
 
 // database.ref('expenses').on('value', (snapshot) => {

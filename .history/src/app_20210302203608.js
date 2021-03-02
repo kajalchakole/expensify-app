@@ -35,13 +35,9 @@ ReactDOM.render(<p>Loading ...</p>, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
     if(user) {
         store.dispatch(startSetExpenses()).then(() => {
-            renderApp();
-            if(history.location.pathname === '/') {
-                history.push('/dashboard');
-            }
+            ReactDOM.render(jsx, document.getElementById('app'));
         });
     }else {
-        renderApp();
-        history.push('/');
+        ReactDOM.render(jsx, document.getElementById('app'));
     }
 });
